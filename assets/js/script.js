@@ -10,16 +10,25 @@ the <main class="page-content" in the <section class="task-list-wrapper" under t
 */
 
 var createTaskHandler = function() {
+
     //createTaskHandler is an anonymous function that replicates the code block.
+
   var listItemEl = document.createElement("li");
+
   //createElement() creates a DOM element object, whic his <li> in this case.
   listItemEl.className = "task-item";
+
   //assigns the className property to the element with the "task-item"class.
 
   listItemEl.textContent = "This is a new task.";
+
   /*textContent property sets or returns the text content of the specified
   node, which is the button.*/
+  //https://www.w3schools.com/jsref/prop_node_textcontent.asp
+
   tasksToDoEl.appendChild(listItemEl);
+  //appendChild() method appends a node(element) as the last child of an element
+  //appends the task item as a child to the task list in the <ul> element
 };
 
 buttonEl.addEventListener("click", createTaskHandler);
