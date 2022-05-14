@@ -34,7 +34,8 @@ if (taskNameInput === "" || taskTypeInput === "") {
     alert("You need to fill out the task form!");
     return false;
 }
-
+var isEdit = formEl.hasAttribute("data-task-id");
+console.log(isEdit);
 var taskDataObj = {
     name: taskNameInput,
     type: taskTypeInput
