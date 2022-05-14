@@ -68,6 +68,15 @@ tasksToDoEl.appendChild(listItemEl);
 taskIdCounter++;
 };
 
+//passing new id into the function
+
+var createTaskActions = function(taskId) {
+    var actionContainerEl = document.createElement("div");
+    //creates the div
+    actionContainerEl.className = "task-actions";
+    //assigns a class name to the div that was created
+}
+
 formEl.addEventListener("submit", taskFormHandler);
 
 //created a "submit" addEventListener
