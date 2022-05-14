@@ -8,18 +8,28 @@ var tasksCompletedEl = document.querySelector("#tasks-completed");
 var pageContentEl = document.querySelector("#page-content");
 
 var taskFormHandler = function(event) {
+//taskFormHandler is an anonymous function that replicates the code block.
   event.preventDefault();
+  //Doesn't allow browser to perform it's default function which is to be refresh after the Add Task button is clicked
   var taskNameInput = document.querySelector("input[name='task-name']").value;
+  //console.dir(taskNameInput);
   var taskTypeInput = document.querySelector("select[name='task-type']").value;
+//console.log(taskTypeInput);
 
-  // check if inputs are empty (validate)
+// check if inputs are empty (validate)
+/* Checking whether the form fields have content. If they do, let the function continue
+and create the task item. If either field doesn't, stop the function and let the user know 
+that something is missing.*/
+
   if (taskNameInput === "" || taskTypeInput === "") {
     alert("You need to fill out the task form!");
     return false;
   }
 
-  // reset form fields for next task to be entered
+  // reset form fields for next task to be entered.
+  // targets the in name of the task that is input.
   document.querySelector("input[name='task-name']").value = "";
+  // targets the item in the array that is to be selected.
   document.querySelector("select[name='task-type']").selectedIndex = 0;
 
   // check if task is new or one being edited by seeing if it has a data-task-id attribute
@@ -27,6 +37,9 @@ var taskFormHandler = function(event) {
 
   if (isEdit) {
     var taskId = formEl.getAttribute("data-task-id");
+    // getAttribute() method returns the value of a specified attribute on the element
+    /* returns the "data-task-id" attribute for formEl variable
+    which targets the <form> element in the <header>*/
     completeEditTask(taskNameInput, taskTypeInput, taskId);
   } else {
     var taskDataObj = {
