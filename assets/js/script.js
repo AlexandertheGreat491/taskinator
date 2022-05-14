@@ -139,11 +139,10 @@ var taskButtonHandler = function(event){
 };
 
 var deleteTask = function(taskId) {
-    console.log(taskId);
-    if (event.target.matches(".delete.btn")) {
-        var taskId = event.target.getAttribute("data-task-id");
-        deleteTask(taskId);
-    }
+    //console.log(taskId);
+    var taskSelected = document.querySelector(".task-item[data-task-id'" + taskId + "']");
+    //console.log(taskSelected);
+    taskSelected.remove();
 };
     
 
