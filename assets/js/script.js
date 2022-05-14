@@ -31,7 +31,11 @@ var createTaskHandler = function() {
   //appends the task item as a child to the task list in the <ul> element
 };
 
-buttonEl.addEventListener("click", createTaskHandler);
+formEl.addEventListener("submit", createTaskHandler);
+
+//created a "submit" addEventListener
+//syntax would be the same for a different event, such as "click"
+//variable.addEventListener("event", function);
 
 /*addEventListener creates the function of the button,
 which in this case is "click" and an event to be executed when the 
