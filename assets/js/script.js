@@ -10,7 +10,7 @@ the <main class="page-content" in the <section class="task-list-wrapper" under t
 */
 
 var taskFormHandler = function(event) {
-//createTaskHandler is an anonymous function that replicates the code block.
+//taskFormHandler is an anonymous function that replicates the code block.
 
     event.preventDefault();
 
@@ -45,7 +45,7 @@ listItemEl.className = "task-item";
   //appends the task item as a child to the task list in the <ul> element
 };
 
-formEl.addEventListener("submit", createTaskHandler);
+formEl.addEventListener("submit", taskFormHandler);
 
 //created a "submit" addEventListener
 //syntax would be the same for a different event, such as "click"
