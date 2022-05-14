@@ -9,7 +9,7 @@ the <main class="page-content" in the <section class="task-list-wrapper" under t
 <h2>
 */
 
-var createTaskHandler = function(event) {
+var taskFormHandler = function(event) {
 //createTaskHandler is an anonymous function that replicates the code block.
 
     event.preventDefault();
@@ -18,6 +18,7 @@ var taskNameInput = document.querySelector("input[name='task-name']").value;
 //console.dir(taskNameInput);
 var taskTypeInput = document.querySelector("select[name='task-type']").value;
 console.log(taskTypeInput);
+
 /*Doesn't allow the browser to perform it's default when submit buton
 is clicked, which is to refresh, instead a task can now be added under Tasks To Do*/  
 // create list item
