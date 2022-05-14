@@ -19,6 +19,15 @@ var taskNameInput = document.querySelector("input[name='task-name']").value;
 var taskTypeInput = document.querySelector("select[name='task-type']").value;
 console.log(taskTypeInput);
 
+//package up data as an object
+var taskDataObj = {
+    name: taskNameInput,
+    type: taskTypeInput
+};
+
+// send it as an argument to createTaskEl
+createTaskEl(taskDataObj);
+
 /*Doesn't allow the browser to perform it's default when submit buton
 is clicked, which is to refresh, instead a task can now be added under Tasks To Do*/  
 // create list item
@@ -58,7 +67,7 @@ listItemEl.className = "task-item";
 // create div to hold task info and add to list item
 var taskInfoEl = document.createElement("div");
 taskInfoEl.className = "task-info";
-taskInfoEl.innerHTML = "<h3 class 'task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
+taskInfoEl.innerHTML = "<h3 class 'task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
 listItemEl.appendChild(taskInfoEl);
 //add entire list item to list
 tasksToDoEl.appendChild(listItemEl);
