@@ -5,7 +5,9 @@ var taskIdCounter = 0;
 
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
-
+var tasksInProgressEl = document.querySelector("#tasks-in-progress");
+var tasksCompletedEl = document.querySelector("tasks-completed");
+var pageContentEl = document.querySelector("#page-content");
 /*document.querySelector("#tasks-to-do") targets the <ul> element in the <ul> under
 the <main class="page-content" in the <section class="task-list-wrapper" under the
 <h2>
@@ -27,15 +29,11 @@ var taskTypeInput = document.querySelector("select[name='task-type']").value;
 and create the task item. If either field doesn't, stop the function and let the user know 
 that something is missing.*/
 
-if (!taskNameInput || !taskTypeInput) {
+if (taskNameInput === "" || taskTypeInput === "") {
     alert("You need to fill out the task form!");
     return false;
 }
 
-formEl.reset();
-//reset() method resets the values of all elements in a form.
-//reset() method combined with the formEl variable resets the form fields.
-//package up data as an object
 var taskDataObj = {
     name: taskNameInput,
     type: taskTypeInput
@@ -147,3 +145,4 @@ button is click*/
 
 //buttonEl variable represents the button element.
 //createTaskHandler is used as a callback function to trigger the code block within the function.
+pageContentEl.addEventListener("click", taskButtonHandler);
