@@ -36,6 +36,14 @@ if (taskNameInput === "" || taskTypeInput === "") {
 }
 var isEdit = formEl.hasAttribute("data-task-id");
 console.log(isEdit);
+// has data attribute, so get task id and call function to compelte edit process
+if (isEdit) {
+    var taskId = formEl.getAttribute("data-task-id");
+    completedEditTask(taskNameInput, taskTypeInput, taskId);
+}
+// no data attribute, so create object as normal and pass to createTaskEl function
+else {
+
 var taskDataObj = {
     name: taskNameInput,
     type: taskTypeInput
@@ -43,7 +51,8 @@ var taskDataObj = {
 
 // send it as an argument to createTaskEl
 createTaskEl(taskDataObj);
-};
+
+}
 
 var createTaskEl = function(taskDataObj) {
 
