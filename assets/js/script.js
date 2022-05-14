@@ -9,27 +9,36 @@ the <main class="page-content" in the <section class="task-list-wrapper" under t
 <h2>
 */
 
-var createTaskHandler = function() {
+var createTaskHandler = function(event) {
 //createTaskHandler is an anonymous function that replicates the code block.
 
-    Event.preventDefault();
+    event.preventDefault();
 
+var taskNameInput = document.querySelector("input[name='task-name']").value;
+//console.dir(taskNameInput);
+var taskTypeInput = document.querySelector("select[name='task-type']").value;
+console.log(taskTypeInput);
 /*Doesn't allow the browser to perform it's default when submit buton
 is clicked, which is to refresh, instead a task can now be added under Tasks To Do*/  
-
+// create list item
   var listItemEl = document.createElement("li");
-
+listItemEl.className = "task-item";
   //createElement() creates a DOM element object, whic his <li> in this case.
-  listItemEl.className = "task-item";
+  //create div to hold task info and add to list item
 
   //assigns the className property to the element with the "task-item"class.
 
-  listItemEl.textContent = "This is a new task.";
+  var taskInfoEl = document.createElement("div");
+  //give it a class name
+  taskInfoEl.className = "task-info";
 
-  /*textContent property sets or returns the text content of the specified
-  node, which is the button.*/
-  //https://www.w3schools.com/jsref/prop_node_textcontent.asp
+  //add HTML content to div
+  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
 
+  listItemEl.appendChild(taskInfoEl);
+
+  // add entire list item to list
+  
   tasksToDoEl.appendChild(listItemEl);
   //appendChild() method appends a node(element) as the last child of an element
   //appends the task item as a child to the task list in the <ul> element
