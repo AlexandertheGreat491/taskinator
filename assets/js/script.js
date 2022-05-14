@@ -10,8 +10,12 @@ the <main class="page-content" in the <section class="task-list-wrapper" under t
 */
 
 var createTaskHandler = function() {
+//createTaskHandler is an anonymous function that replicates the code block.
 
-    //createTaskHandler is an anonymous function that replicates the code block.
+    event.preventDefault();
+
+/*Doesn't allow the browser to perform it's default when submit buton
+is clicked, which is to refresh, instead a task can now be added under Tasks To Do*/  
 
   var listItemEl = document.createElement("li");
 
