@@ -22,8 +22,10 @@ console.log(taskTypeInput);
 /*Doesn't allow the browser to perform it's default when submit buton
 is clicked, which is to refresh, instead a task can now be added under Tasks To Do*/  
 // create list item
+
   var listItemEl = document.createElement("li");
 listItemEl.className = "task-item";
+
   //createElement() creates a DOM element object, whic his <li> in this case.
   //create div to hold task info and add to list item
 
@@ -44,6 +46,11 @@ listItemEl.className = "task-item";
   //appendChild() method appends a node(element) as the last child of an element
   //appends the task item as a child to the task list in the <ul> element
 };
+
+var createTaskEl = function(taskDataObj) {
+    name: "Task's name",
+    type: "Task's type"
+}
 
 formEl.addEventListener("submit", taskFormHandler);
 
