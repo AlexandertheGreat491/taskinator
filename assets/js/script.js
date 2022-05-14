@@ -20,6 +20,16 @@ var taskNameInput = document.querySelector("input[name='task-name']").value;
 var taskTypeInput = document.querySelector("select[name='task-type']").value;
 //console.log(taskTypeInput);
 
+// check if input values are empty strings
+/* Checking whether the form fields have content. If they do, let the function continue
+and create the task item. If either field doesn't, stop the function and let the user know 
+that something is missing.*/
+
+if (!taskNameInput || !taskTypeInput) {
+    alert("You need to fill out the task form!");
+    return false;
+}
+
 //package up data as an object
 var taskDataObj = {
     name: taskNameInput,
