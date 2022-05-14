@@ -13,11 +13,12 @@ var taskFormHandler = function(event) {
 //taskFormHandler is an anonymous function that replicates the code block.
 
     event.preventDefault();
-
+/*Doesn't allow the browser to perform it's default when submit buton
+is clicked, which is to refresh, instead a task can now be added under Tasks To Do*/  
 var taskNameInput = document.querySelector("input[name='task-name']").value;
 //console.dir(taskNameInput);
 var taskTypeInput = document.querySelector("select[name='task-type']").value;
-console.log(taskTypeInput);
+//console.log(taskTypeInput);
 
 //package up data as an object
 var taskDataObj = {
@@ -27,51 +28,24 @@ var taskDataObj = {
 
 // send it as an argument to createTaskEl
 createTaskEl(taskDataObj);
-
-/*Doesn't allow the browser to perform it's default when submit buton
-is clicked, which is to refresh, instead a task can now be added under Tasks To Do*/  
-// create list item
-
-  var listItemEl = document.createElement("li");
-listItemEl.className = "task-item";
-
-  //createElement() creates a DOM element object, whic his <li> in this case.
-  //create div to hold task info and add to list item
-
-  //assigns the className property to the element with the "task-item"class.
-
-  var taskInfoEl = document.createElement("div");
-  //give it a class name
-  taskInfoEl.className = "task-info";
-
-  //add HTML content to div
-  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + "</span>";
-
-  listItemEl.appendChild(taskInfoEl);
-
-  // add entire list item to list
-  
-  tasksToDoEl.appendChild(listItemEl);
-  //appendChild() method appends a node(element) as the last child of an element
-  //appends the task item as a child to the task list in the <ul> element
 };
 
 var createTaskEl = function(taskDataObj) {
-    name: "Task's name",
-    type: "Task's type"
+
 // create list item
 
 var listItemEl = document.createElement("li");
 listItemEl.className = "task-item";
-
+//createElement() creates a DOM element object, whic his <li> in this case.
+ 
 // create div to hold task info and add to list item
 var taskInfoEl = document.createElement("div");
 taskInfoEl.className = "task-info";
-taskInfoEl.innerHTML = "<h3 class 'task-name'>" + taskNameInput + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+taskInfoEl.innerHTML = "<h3 class 'task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
 listItemEl.appendChild(taskInfoEl);
 //add entire list item to list
 tasksToDoEl.appendChild(listItemEl);
-}
+};
 
 formEl.addEventListener("submit", taskFormHandler);
 
