@@ -82,7 +82,7 @@ var createTaskActions = function(taskId) {
     editButtonEl.className = "btn edit-btn";
     editButtonEl.setAttribute("data-task-id", taskId);
 
-    action
+    actionContainerEl.appendChild(editButtonEl);
 }
 
 formEl.addEventListener("submit", taskFormHandler);
