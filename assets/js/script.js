@@ -102,6 +102,12 @@ var createTaskActions = function(taskId) {
 
     //sets a custom data attribute for the taskId for this element
     
+    // create a status change dropdown
+    var statusSelectEl = document.createElement("select");
+    statusSelectEl.className = "select-status";
+    statusSelectEl.setAttribute("data-task-id", taskId);
+    actionContainerEl.appendChild(statusSelectEl);
+
     return actionContainerEl;
 }
 
