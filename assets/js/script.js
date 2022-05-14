@@ -80,6 +80,8 @@ var createTaskActions = function(taskId) {
   editButtonEl.textContent = "Edit";
   editButtonEl.className = "btn edit-btn";
   editButtonEl.setAttribute("data-task-id", taskId);
+  /*setAttribute(name, value), name sepcifies the attribute whose value is to be set
+  & value is the value that is going to be assigned to the attribute*/
   actionContainerEl.appendChild(editButtonEl);
   // create delete button
   var deleteButtonEl = document.createElement("button");
@@ -121,6 +123,7 @@ var completeEditTask = function(taskName, taskType, taskId) {
 
   // remove data attribute from form
   formEl.removeAttribute("data-task-id");
+  /*removeAttribute() removes the attribute with the specified name from the element */
   // update formEl button to go back to saying "Add Task" instead of "Edit Task"
   formEl.querySelector("#save-task").textContent = "Add Task";
 };
@@ -130,6 +133,7 @@ var taskButtonHandler = function(event) {
   var targetEl = event.target;
 
   if (targetEl.matches(".edit-btn")) {
+//matches() method tests whether the element wold selected by the specified CSS selector.
     console.log("edit", targetEl);
     var taskId = targetEl.getAttribute("data-task-id");
     editTask(taskId);
@@ -188,6 +192,7 @@ var deleteTask = function(taskId) {
   // find task list element with taskId value and remove it
   var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
   taskSelected.remove();
+  //remove() method removes the element from the DOM.
 };
 
 // Create a new task
