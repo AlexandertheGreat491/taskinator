@@ -63,6 +63,10 @@ listItemEl.appendChild(taskInfoEl);
 //add entire list item to list
 tasksToDoEl.appendChild(listItemEl);
 
+var taskActionsEl = createTaskActions(taskIdCounter);
+//console.log(taskActionsEl);
+listItemEl.appendChild(taskActionsEl);
+tasksToDoEl.appendChild(listItemEl);
 // increase task counter for next unique id.
 // taskIdCounter will increase in increments of 1 to next unique id.
 taskIdCounter++;
@@ -119,6 +123,11 @@ var createTaskActions = function(taskId) {
         statusSelectEl.appendChild(statusOptionEl);
     }
     //loop goes through the status options.
+    /*the loop starts at statusChoices[0]. i < statusChoices.length keeps the for loop 
+    running by checking against the number of items in the array (length being the property that returns the number of items)
+    i++ increments the counter by one after each loop iteration.
+    statusChoices[i] returns the value of the array at the given index*/
+
     return actionContainerEl;
 };
 
