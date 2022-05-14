@@ -75,6 +75,14 @@ var createTaskActions = function(taskId) {
     //creates the div
     actionContainerEl.className = "task-actions";
     //assigns a class name to the div that was created
+
+    // create edit button
+    var editButtonEl = document.createElement("button");
+    editButtonEl.textContent = "Edit";
+    editButtonEl.className = "btn edit-btn";
+    editButtonEl.setAttribute("data-task-id", taskId);
+
+    action
 }
 
 formEl.addEventListener("submit", taskFormHandler);
