@@ -1,5 +1,6 @@
 var taskIdCounter = 0;
-
+//taskIdCounter variable will be used to assign an id to the current task being created.
+// document.querySelector returns the first element within the document that has that specified selector
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 var tasksInProgressEl = document.querySelector("#tasks-in-progress");
