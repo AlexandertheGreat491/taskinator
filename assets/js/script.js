@@ -1,4 +1,5 @@
 var taskIdCounter = 0;
+//taskIdCounter variable will be used to assign an id to the current task being created.
 // document.querySelector returns the first element within the document that mat hes the spcified selector//
 //document.querySelector("#save-task") targets the <button> element from index.html
 
