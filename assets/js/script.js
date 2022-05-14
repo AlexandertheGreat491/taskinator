@@ -119,10 +119,12 @@ var createTaskActions = function(taskId) {
         statusSelectEl.appendChild(statusOptionEl);
     }
     //loop goes through the status options.
-}
-
     return actionContainerEl;
 };
+
+
+    
+
 
 formEl.addEventListener("submit", taskFormHandler);
 
