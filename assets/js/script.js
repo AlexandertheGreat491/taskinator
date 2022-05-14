@@ -83,6 +83,26 @@ var createTaskActions = function(taskId) {
     editButtonEl.setAttribute("data-task-id", taskId);
 
     actionContainerEl.appendChild(editButtonEl);
+
+    // create a delete button
+
+    var deleteButtonEl = document.createElement("button");
+
+    //creates a button element
+
+    deleteButtonEl.textContent = "Delete";
+
+    //makes the text of the button say "Delete"
+
+    deleteButtonEl.className = "btn delete-btn";
+
+    //assigns a class to this button element
+
+    deleteButtonEl.setAttribute("data-task-id", taskId);
+
+    //sets a custom data attribute for the taskId for this element
+    
+    return actionContainerEl;
 }
 
 formEl.addEventListener("submit", taskFormHandler);
