@@ -6,7 +6,7 @@ var taskIdCounter = 0;
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 var tasksInProgressEl = document.querySelector("#tasks-in-progress");
-var tasksCompletedEl = document.querySelector("tasks-completed");
+var tasksCompletedEl = document.querySelector("#tasks-completed");
 var pageContentEl = document.querySelector("#page-content");
 /*document.querySelector("#tasks-to-do") targets the <ul> element in the <ul> under
 the <main class="page-content" in the <section class="task-list-wrapper" under the
@@ -117,13 +117,16 @@ var createTaskEl = function(taskDataObj) {
         //assigns a class to this button element
     
         deleteButtonEl.setAttribute("data-task-id", taskId);
+        actionContainerEl.appendChild(deleteButtonEl);
     
         //sets a custom data attribute for the taskId for this element
     
         // create a status change dropdown
         var statusSelectEl = document.createElement("select");
-        statusSelectEl.className = "select-status";
+        statusSelectEl.setAttribute("name", "status-change");
         statusSelectEl.setAttribute("data-task-id", taskId);
+        statusSelectEl.className = "select-status";
+        
         //append to select
         actionContainerEl.appendChild(statusSelectEl);
         var statusChoices = ["To-Do", "In Progress", "Completed"];
@@ -131,8 +134,9 @@ var createTaskEl = function(taskDataObj) {
         for (var i = 0; i < statusChoices.length; i++) {
             // create option element
             var statusOptionsEl = docuemnt.createElement("option");
-            statusOptionsEl.textContent = statusChoices[i];
             statusOptionsEl.setAttribute("value", statusChoices[i]);
+            statusOptionsEl.textContent = statusChoices[i];
+            
             //append to select
             statusSelectEl.appendChild(statusOptionEl);
         }
@@ -145,7 +149,7 @@ var createTaskEl = function(taskDataObj) {
         return actionContainerEl;
     };
 
-var completedEditTask = function(taskNfame, taskType, taskId) {
+var completedEditTask = function(taskName, taskType, taskId) {
     //console.log(taskName, taskType, taskId);
 // find task list item with taskId value
 var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
@@ -163,7 +167,7 @@ document.querySelector("#save-task").textContent = "Add Task";
 var taskButtonHandler = function(event){
     //console.log(event.target);
     // get target element from event
-    var targetEl = even.target;
+    var targetEl = event.target;
     //edit button was clicked
     if (targetEl.matches(".edit-btn")) {
         var taskId = targetEl.getAttribute("data-task-id");
@@ -176,7 +180,9 @@ var taskButtonHandler = function(event){
         deleteTask(taskId);
     }
 };
-
+var taskStatusChangeHandler = function(event) {
+    
+}
 var editTask = function(taskId) {
     //console.log("editing task #" + taskId);
     //get task list item element
@@ -215,3 +221,4 @@ button is click*/
 //createTaskHandler is used as a callback function to trigger the code block within the function.
 
 pageContentEl.addEventListener("click", taskButtonHandler);
+pageContentEl.addEventListener("change", taskStatusChangeHandler);
