@@ -129,7 +129,22 @@ var createTaskActions = function(taskId) {
     return actionContainerEl;
 };
 
+var taskButtonHandler = function(event){
+    console.log(event.target);
+    if (event.target.matches(".delete-btn")) {
+        //get the element's task id
+        var taskId = event.target.getAttribute("data-task-id");
+        console.log(taskId);
+    }
+};
 
+var deleteTask = function(taskId) {
+    console.log(taskId);
+    if (event.target.matches(".delete.btn")) {
+        var taskId = event.target.getAttribute("data-task-id");
+        deleteTask(taskId);
+    }
+};
     
 
 
@@ -145,12 +160,5 @@ button is click*/
 
 //buttonEl variable represents the button element.
 //createTaskHandler is used as a callback function to trigger the code block within the function.
-var taskButtonHandler = function(event){
-    console.log(event.target);
-    if (event.target.matches(".delete-btn")) {
-        //get the element's task id
-        var taskId = event.target.getAttribute("data-task-id");
-        console.log(taskId);
-    }
-};
+
 pageContentEl.addEventListener("click", taskButtonHandler);
