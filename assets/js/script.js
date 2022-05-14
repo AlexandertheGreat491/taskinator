@@ -54,6 +54,17 @@ createTaskEl(taskDataObj);
 
 }
 
+var completedEditTask = function(taskNfame, taskType, taskId) {
+    //console.log(taskName, taskType, taskId);
+// find the matching task list item
+var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+// set new values
+taskSelected.querySelector("he.task-name").textContent = taskName;
+taskSelected.querySelector("span.task-type").textContent = taskType;
+
+alert("Task Updated!");
+}
+
 var createTaskEl = function(taskDataObj) {
 
 // create list item
