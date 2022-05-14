@@ -30,6 +30,9 @@ if (!taskNameInput || !taskTypeInput) {
     return false;
 }
 
+formEl.reset();
+//reset() method resets the values of all elements in a form.
+//reset() method combined with the formEl variable resets the form fields.
 //package up data as an object
 var taskDataObj = {
     name: taskNameInput,
