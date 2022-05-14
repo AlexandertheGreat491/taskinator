@@ -101,15 +101,28 @@ var createTaskActions = function(taskId) {
     deleteButtonEl.setAttribute("data-task-id", taskId);
 
     //sets a custom data attribute for the taskId for this element
-    
+
     // create a status change dropdown
     var statusSelectEl = document.createElement("select");
     statusSelectEl.className = "select-status";
     statusSelectEl.setAttribute("data-task-id", taskId);
+    //append to select
     actionContainerEl.appendChild(statusSelectEl);
+    var statusChoices = ["To-Do", "In Progress", "Completed"];
+    // array will facilitate the looping
+    for (var i = 0; i < statusChoices.length; i++) {
+        // create option element
+        var statusOptionsEl = docuemnt.createElement("option");
+        statusOptionsEl.textContent = statusChoices[i];
+        statusOptionsEl.setAttribute("value", statusChoices[i]);
+        //append to select
+        statusSelectEl.appendChild(statusOptionEl);
+    }
+    //loop goes through the status options.
+}
 
     return actionContainerEl;
-}
+};
 
 formEl.addEventListener("submit", taskFormHandler);
 
