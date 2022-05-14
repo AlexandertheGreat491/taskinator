@@ -1,3 +1,4 @@
+var taskIdCounter = 0;
 // document.querySelector returns the first element within the document that mat hes the spcified selector//
 //document.querySelector("#save-task") targets the <button> element from index.html
 
