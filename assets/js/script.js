@@ -238,7 +238,7 @@ var deleteTask = function(taskId) {
 };
 
 var saveTasks = function() {
-  localStorage.setItem("tasks", tasks);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 // Now when the saveTasks() function is executed in other functions it will store the results of those functions in localStorage.
 // Create a new task
