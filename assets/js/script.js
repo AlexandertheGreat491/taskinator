@@ -230,6 +230,9 @@ var deleteTask = function(taskId) {
   tasks = updatedTaskArr;
 };
 
+var saveTasks = function() {
+  
+}
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
 
