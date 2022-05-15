@@ -216,7 +216,7 @@ var deleteTask = function(taskId) {
   taskSelected.remove();
   //remove() method removes the element from the DOM.
   // create new array to hold updated list of tasks
-  varupdatedTaskArr = [];
+  var updatedTaskArr = [];
 
   // loop through current tasks
   for (var i = 0; i < tasks.length; i++) {
