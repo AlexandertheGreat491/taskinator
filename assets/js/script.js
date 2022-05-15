@@ -131,6 +131,7 @@ for (var i = 0; i < tasks.length; i++) {
 /*In this for loop, checking to see if individual task's id property matches taskId
 passed through completeEditTask(), because taskId is a string and tasks[i].id
 is a number, taskId is wrapped in parseInt to make sure that both numbers being pulled are numbers.*/
+
   alert("Task Updated!");
 
   // remove data attribute from form
@@ -174,6 +175,15 @@ var taskStatusChangeHandler = function(event) {
   } else if (statusValue === "completed") {
     tasksCompletedEl.appendChild(taskSelected);
   }
+
+  // update task's in tasks array
+  for (var i = 0; i < tasks.length; i++) {
+    if (tasks[i].id === parseInt(taskId)) {
+      tasks[i].status = statusValue;
+    }
+  }
+  //console.log(tasks);
+  /* for loop updates the task area from the taskStatusChangeHandler() */
 };
 
 var editTask = function(taskId) {
