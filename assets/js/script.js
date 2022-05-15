@@ -23,7 +23,7 @@ var taskFormHandler = function(event) {
 and create the task item. If either field doesn't, stop the function and let the user know 
 that something is missing.*/
 
-  if (taskNameInput === "" || taskTypeInput === "") {
+  if (!taskNameInput || !taskTypeInput) {
     alert("You need to fill out the task form!");
     return false;
   }
