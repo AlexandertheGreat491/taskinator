@@ -68,6 +68,10 @@ var createTaskEl = function(taskDataObj) {
   listItemEl.appendChild(taskActionsEl);
   tasksToDoEl.appendChild(listItemEl);
 
+  // save task as an object with name, type, status, and id properties
+  taskDataObj.id = taskIdCounter;
+  tasks.push(taskDataObj);
+  saveTasks();
   // increase task counter for next unique id
   taskIdCounter++;
 };
@@ -231,8 +235,9 @@ var deleteTask = function(taskId) {
 };
 
 var saveTasks = function() {
-  
-}
+  localStorage.setItem("tasks", tasks);
+};
+// Now when the saveTasks() function is executed in other functions it will store the results of those functions in localStorage.
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
 
