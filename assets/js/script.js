@@ -130,6 +130,7 @@ for (var i = 0; i < tasks.length; i++) {
     tasks[i].name = taskName;
     tasks[i].type = taskType;
   }
+  saveTasks();
 };
 
 /*In this for loop, checking to see if individual task's id property matches taskId
