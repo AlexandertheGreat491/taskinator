@@ -120,7 +120,17 @@ var completeEditTask = function(taskName, taskType, taskId) {
   // set new values
   taskSelected.querySelector("h3.task-name").textContent = taskName;
   taskSelected.querySelector("span.task-type").textContent = taskType;
+//loop through tasks array and task object with new content
+for (var i = 0; i < tasks.length; i++) {
+  if (tasks[i].id === parseInt(taskId)) {
+    tasks[i].name = taskName;
+    tasks[i].type = taskType;
+  }
+};
 
+/*In this for loop, checking to see if individual task's id property matches taskId
+passed through completeEditTask(), because taskId is a string and tasks[i].id
+is a number, taskId is wrapped in parseInt to make sure that both numbers being pulled are numbers.*/
   alert("Task Updated!");
 
   // remove data attribute from form
