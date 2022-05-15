@@ -44,9 +44,11 @@ that something is missing.*/
   } else {
     var taskDataObj = {
       name: taskNameInput,
-      type: taskTypeInput
+      type: taskTypeInput,
+      status: "to do"
     };
-
+//console.log(taskDataObj);
+//console.log(taskDataObj.status);
     createTaskEl(taskDataObj);
   }
 };
