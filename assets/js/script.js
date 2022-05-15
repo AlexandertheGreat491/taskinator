@@ -62,14 +62,14 @@ var createTaskEl = function(taskDataObj) {
 
   var taskInfoEl = document.createElement("div");
   taskInfoEl.className = "task-info";
-  taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
+  taskInfoEl.innerHTML = 
+  "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl);
 
   // create task actions (buttons and select) for task
   var taskActionsEl = createTaskActions(taskIdCounter);
   listItemEl.appendChild(taskActionsEl);
-  tasksToDoEl.appendChild(listItemEl);
-
+  
   // save task as an object with name, type, status, and id properties
   taskDataObj.id = taskIdCounter;
   tasks.push(taskDataObj);
@@ -132,7 +132,7 @@ for (var i = 0; i < tasks.length; i++) {
     tasks[i].name = taskName;
     tasks[i].type = taskType;
   }
-  saveTasks();
+  
 };
 
 /*In this for loop, checking to see if individual task's id property matches taskId
@@ -146,6 +146,8 @@ is a number, taskId is wrapped in parseInt to make sure that both numbers being 
   /*removeAttribute() removes the attribute with the specified name from the element */
   // update formEl button to go back to saying "Add Task" instead of "Edit Task"
   formEl.querySelector("#save-task").textContent = "Add Task";
+  // save tasks to localStorage
+  saveTasks();
 };
 
 var taskButtonHandler = function(event) {
