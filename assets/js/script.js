@@ -47,7 +47,7 @@ that something is missing.*/
     var taskDataObj = {
       name: taskNameInput,
       type: taskTypeInput,
-      status: "to do"
+      status: "to do",
     };
 //console.log(taskDataObj);
 //console.log(taskDataObj.status);
