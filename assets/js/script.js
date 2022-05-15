@@ -258,6 +258,17 @@ var updatedTaskArr = [];
 var saveTasks = function() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
+
+var loadTasks = function() {
+  tasks = localStorage.getItem("tasks");
+
+  if (!tasks) {
+    tasks = [];
+    return false;
+  }
+
+  tasks = JSON.parse(tasks);
+}
 // Now when the saveTasks() function is executed in other functions it will store the results of those functions in localStorage.
 // Create a new task
 formEl.addEventListener("submit", taskFormHandler);
