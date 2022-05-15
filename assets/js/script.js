@@ -142,11 +142,14 @@ var createTaskActions = function(taskId) {
 
 var completeEditTask = function(taskName, taskType, taskId) {
   // find task list item with taskId value
-  var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+  var taskSelected = document.querySelector(
+    ".task-item[data-task-id='" + taskId + "']"
+    );
 
   // set new values
   taskSelected.querySelector("h3.task-name").textContent = taskName;
   taskSelected.querySelector("span.task-type").textContent = taskType;
+
 //loop through tasks array and task object with new content
 for (var i = 0; i < tasks.length; i++) {
   if (tasks[i].id === parseInt(taskId)) {
@@ -154,7 +157,7 @@ for (var i = 0; i < tasks.length; i++) {
     tasks[i].type = taskType;
   }
   
-};
+}
 
 /*In this for loop, checking to see if individual task's id property matches taskId
 passed through completeEditTask(), because taskId is a string and tasks[i].id
@@ -188,12 +191,14 @@ var taskButtonHandler = function(event) {
 };
 
 var taskStatusChangeHandler = function(event) {
-  //console.log(event.target.value);
+  console.log(event.target.value);
 
   // find task list item based on event.target's data-task-id attribute
   var taskId = event.target.getAttribute("data-task-id");
 
-  var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+  var taskSelected = document.querySelector(
+    ".task-item[data-task-id='" + taskId + "']"
+    );
 
   // convert value to lower case
   var statusValue = event.target.value.toLowerCase();
@@ -211,7 +216,7 @@ var taskStatusChangeHandler = function(event) {
     if (tasks[i].id === parseInt(taskId)) {
       tasks[i].status = statusValue;
     }
-    console.log(tasks);
+    //console.log(tasks);
   }
   //console.log(tasks);
   /* for loop updates the task area from the taskStatusChangeHandler()*/
