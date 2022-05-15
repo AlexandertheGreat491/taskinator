@@ -188,7 +188,8 @@ var taskStatusChangeHandler = function(event) {
     }
   }
   //console.log(tasks);
-  /* for loop updates the task area from the taskStatusChangeHandler() */
+  /* for loop updates the task area from the taskStatusChangeHandler()*/
+  saveTasks();
 };
 
 var editTask = function(taskId) {
@@ -233,6 +234,7 @@ var deleteTask = function(taskId) {
   // keeps the tasks array up-to-date at all times
   // reassign tasks array to be the same as updatedTaskArr
   tasks = updatedTaskArr;
+  saveTasks();
 };
 
 var saveTasks = function() {
