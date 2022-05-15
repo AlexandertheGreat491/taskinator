@@ -260,14 +260,20 @@ var saveTasks = function() {
 };
 
 var loadTasks = function() {
-  tasks = localStorage.getItem("tasks");
+  var savedTasks = localStorage.getItem("tasks");
 
   if (!tasks) {
     tasks = [];
     return false;
   }
 
-  tasks = JSON.parse(tasks);
+  savedTasks = JSON.parse(savedTasks);
+
+  //loop through savedTasks array
+  for (var i = 0; i < savedTasks.length; i++) {
+    //pass each task object into the `createTaskEl()` function
+    createTaskEl(savedTasks[i]);
+  }
 }
 // Now when the saveTasks() function is executed in other functions it will store the results of those functions in localStorage.
 // Create a new task
