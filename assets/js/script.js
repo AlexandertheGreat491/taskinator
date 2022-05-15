@@ -72,7 +72,7 @@ var createTaskEl = function(taskDataObj) {
   
   // save task as an object with name, type, status, and id properties
   taskDataObj.id = taskIdCounter;
-  
+
   tasks.push(taskDataObj);
 
   // save tasks to localStorage
@@ -194,6 +194,7 @@ var taskStatusChangeHandler = function(event) {
     if (tasks[i].id === parseInt(taskId)) {
       tasks[i].status = statusValue;
     }
+    console.log(tasks);
   }
   //console.log(tasks);
   /* for loop updates the task area from the taskStatusChangeHandler()*/
@@ -231,6 +232,15 @@ var deleteTask = function(taskId) {
   //remove() method removes the element from the DOM.
   // create new array to hold updated list of tasks
   var updatedTaskArr = [];
+console.log(taskId);
+// find task list element with taskId value and remove it
+var taskSelected = document.querySelector(
+  ".task-item[data-task-id='" + taskId + "']"
+);
+taskSelected.remove();
+
+// create new array to hold updated list of tasks
+var updatedTaskArr = [];
 
   // loop through current tasks
   for (var i = 0; i < tasks.length; i++) {
