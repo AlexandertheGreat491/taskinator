@@ -72,9 +72,12 @@ var createTaskEl = function(taskDataObj) {
   
   // save task as an object with name, type, status, and id properties
   taskDataObj.id = taskIdCounter;
+  
   tasks.push(taskDataObj);
+
   // save tasks to localStorage
   saveTasks();
+
   // increase task counter for next unique id
   taskIdCounter++;
 };
